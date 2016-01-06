@@ -1,0 +1,45 @@
+<div class="page-header col-md-12">
+  <h1>Administrador de Gastos
+    <small>Demo</small>
+  </h1>
+</div>
+<div class="col-md-12">
+  <h4 class="total-spends pull-left">Gastos totales = <%= @month_total_spends %></h4>
+  <div class="months-spendigs pull-right">
+    <% @months.each do |month| %>
+        <%= link_to month, "#", class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+<div  class="col-md-12 div-table">
+  <table class="col-md-6 table table-striped">
+    <thead>
+      <tr>
+        <th>
+          Descripcion
+        </th>
+        <th>
+          Cantidad
+        </th>
+        <th>
+          Fecha
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @spendings.each do |spending| %>
+        <tr>
+          <td>
+            <%=  spending.description || ""%>
+          </td>
+          <td>
+            <%= spending.amount %>
+          </td>
+          <td>
+            <%= spending.created_at.to_s(:db) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
