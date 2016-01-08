@@ -1,14 +1,7 @@
 class SpendingsController < ApplicationController
 
   def index
-    @spending = Spend.new(SpendingStore)
-    if params[:month] == nil || params[:year] == nil
-      @spendings = Spend.current_month_spends(SpendingStore)
-    else
-      @spendings = Spend.month_spendings({month: params[:month], year: params[:year]}, SpendingStore)
-    end
-    @month_total_spends = Spend.month_total_spends(@spendings)
-    @months = Spend.months_with_spendings(SpendingStore)
+    @page_items = SpendingPages.index_page(params, SpendingStore)
   end
 
   def create
