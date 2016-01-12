@@ -1,1 +1,18 @@
-
+<div class="page-header col-md-12">
+  <div class="col-md-8">
+    <h1>
+      Administrador de Gastos
+      <small>Registro</small>
+    </h1>
+  </div>
+</div>
+<div class="user-form col-md-6">
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+  <% end %>
+  <%= simple_form_for @user_form, as: :user, url: users_path, html: {class: 'spend-form' } do |f|%>
+    <%= f.input :name, required: false, label: "Nombre", label_html: { class: 'form-label' }  %>
+    <%= f.input :email, required: false, label: "Email", label_html: { class: 'form-label' }  %>
+    <%= f.input :password, required: false, label: "Contraseña", label_html: { class: 'form-label' } %>
+    <%= f.button :submit, "Crear", class: "btn btn-default" %>
+  <% end %>

@@ -10,6 +10,7 @@ gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'simple_form'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
